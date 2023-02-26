@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 import './Auth.css'
 import icon from '../../assets/icon.png'
 import Aboutauth from './Aboutauth'
+import { signup, login } from '../../actions/auth'
 
 
 const Auth = () => {
@@ -13,8 +14,8 @@ const Auth = () => {
  const [password, setPassword] = useState('')
  
 
- const dispatch = useDispatch()
- const navigate = useNavigate()
+   const dispatch = useDispatch()
+   const navigate = useNavigate()
 
 
    const handleSwitch = () => {
@@ -30,9 +31,10 @@ const Auth = () => {
     if(isSignup){
       if(!name){
         alert("Enter a name to continue")
-      }
-
-       
+      } 
+       dispatch (signup({ name, email, password}, navigate))
+    } else{
+       dispatch (login({ email, password}, navigate))
     }
    
    }
