@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 
 const userSchema = mongoose.Schema({
-    name: {type: string, required: true},
-    email: {type: string, required: true},
-    password: {type: string, required: true},
-    about: {type: string},
-    tags: {type: [string]},
+    name: {type: String, required: true},
+    email: {type: String, required: true},
+    password: {type: String, required: true},
+    about: {type: String},
+    tags: {type: [String]},
     joinedOn: {type: Date, default: Date.now}
 })
 
